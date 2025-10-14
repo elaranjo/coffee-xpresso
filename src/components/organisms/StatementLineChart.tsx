@@ -223,7 +223,16 @@ export function StatementLineChart({
               grid={{ horizontal: false, vertical: false }}
               series={[
                 {
+                  id: 'income',
+                  label: 'Entradas',
+                  dataKey: 'income',
+                  color: incomeColor,
+                  curve: 'monotoneX',
+                  showMark: false,
+                },
+                {
                   id: 'expense',
+                  label: 'Saídas',
                   dataKey: 'expense',
                   color: expenseColor,
                   curve: 'monotoneX',
