@@ -18,7 +18,8 @@ import { useMemo } from 'react';
 import type { ProductType, Transaction } from '../../types/statement';
 import { formatCurrency, getSignedAmount } from '../../utils/currency';
 import { formatDate } from '../../utils/date';
-import { ProductIcon } from '../atoms/icons/ProductIcon';
+import { Icon } from '../atoms/Icon';
+import { PRODUCT_ICON_NAME } from '../../constants/icons';
 
 interface TransactionsTableProps {
   transactions: Transaction[];
@@ -236,7 +237,7 @@ export function TransactionsTable({
                               color: 'rgba(0,0,0,0.56)',
                             }}
                           >
-                            <ProductIcon type={productType} size={20} />
+                            <Icon name={PRODUCT_ICON_NAME[productType]} size={20} aria-hidden />
                           </Avatar>
                           <Typography
                             variant="body2"

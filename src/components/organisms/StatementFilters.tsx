@@ -1,8 +1,8 @@
 import { Stack } from '@mui/material';
 
 import type { ProductType, ProductView } from '../../types/statement';
-import { CheckmarkLineIcon } from '../atoms/icons/CheckmarkLineIcon';
-import { ProductIcon } from '../atoms/icons/ProductIcon';
+import { Icon } from '../atoms/Icon';
+import { DEFAULT_ICON_COLOR, PRODUCT_ICON_NAME, SELECTED_ICON_COLOR } from '../../constants/icons';
 import { FilterChip } from '../molecules/FilterChip';
 
 interface StatementFiltersProps {
@@ -24,12 +24,14 @@ export function StatementFilters({ productView, onProductViewChange }: Statement
       {PRODUCT_ORDER.map((option) => {
         const label = option === 'all' ? 'Visão geral' : PRODUCT_LABEL[option];
         const selected = productView === option;
-        const icon =
-          option === 'all' ? (
-            <CheckmarkLineIcon selected={selected} />
-          ) : (
-            <ProductIcon type={option} selected={selected} size={20} />
-          );
+        const iconColor = selected ? SELECTED_ICON_COLOR : DEFAULT_ICON_COLOR;
+        const icon = option === 'all'
+          ? (
+              <Icon name="checkmark-line" size={20} color={iconColor} aria-hidden />
+            )
+          : (
+              <Icon name={PRODUCT_ICON_NAME[option]} size={20} color={iconColor} aria-hidden />
+            );
 
         return (
           <FilterChip

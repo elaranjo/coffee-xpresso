@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material';
 
-import { TrendIcon } from '../atoms/icons/TrendIcon';
+import { Icon } from '../atoms/Icon';
 
 interface SummaryMetricProps {
   value: string;
@@ -21,7 +21,12 @@ export function SummaryMetric({ value, direction, color }: SummaryMetricProps) {
           justifyContent: 'center',
         }}
       >
-        <TrendIcon direction={direction} color={color} size={18} />
+        <Icon
+          name={direction === 'up' ? 'arrow-trend-up' : 'arrow-trend-down'}
+          color={color}
+          size={18}
+          aria-hidden
+        />
       </Box>
       <Typography
         variant="body2"

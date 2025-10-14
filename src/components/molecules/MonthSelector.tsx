@@ -1,8 +1,19 @@
+import { forwardRef } from 'react';
+import type { ComponentProps } from 'react';
+
 import type { SelectChangeEvent } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 
-import { SelectChevronIcon } from '../atoms/icons/SelectChevronIcon';
+import { Icon } from '../atoms/Icon';
+
+type SelectChevronIconProps = Omit<ComponentProps<typeof Icon>, 'name'>;
+
+const SelectChevronIcon = forwardRef<HTMLSpanElement, SelectChevronIconProps>(
+  function SelectChevronIcon({ size = 16, ...props }, ref) {
+    return <Icon ref={ref} name="chevron-down" size={size} {...props} />;
+  },
+);
 
 interface MonthOption {
   key: string;

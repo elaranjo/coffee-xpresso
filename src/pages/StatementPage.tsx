@@ -15,8 +15,8 @@ import {
   buildDailyIncomeSeries,
 } from '../utils/statement';
 import { formatDate, getMonthBoundaries } from '../utils/date';
-import { ProductIcon } from '../components/atoms/icons/ProductIcon';
-import { CheckmarkLineIcon } from '../components/atoms/icons/CheckmarkLineIcon';
+import { Icon } from '../components/atoms/Icon';
+import { DEFAULT_ICON_COLOR, PRODUCT_ICON_NAME, SELECTED_ICON_COLOR } from '../constants/icons';
 
 type MonthFilterOption = {
   key: string;
@@ -55,22 +55,50 @@ const PRODUCT_FILTER_OPTIONS: Array<{ value: ProductView; label: string; icon: (
   {
     value: 'all',
     label: 'Visão geral',
-    icon: (selected) => <CheckmarkLineIcon selected={selected} />,
+    icon: (selected) => (
+      <Icon
+        name="checkmark-line"
+        size={20}
+        color={selected ? SELECTED_ICON_COLOR : DEFAULT_ICON_COLOR}
+        aria-hidden
+      />
+    ),
   },
   {
     value: 'business_account',
     label: 'Conta empresarial',
-    icon: (selected) => <ProductIcon type="business_account" size={20} selected={selected} />,
+    icon: (selected) => (
+      <Icon
+        name={PRODUCT_ICON_NAME.business_account}
+        size={20}
+        color={selected ? SELECTED_ICON_COLOR : DEFAULT_ICON_COLOR}
+        aria-hidden
+      />
+    ),
   },
   {
     value: 'expense_management',
     label: 'Gestão de despesas',
-    icon: (selected) => <ProductIcon type="expense_management" size={20} selected={selected} />,
+    icon: (selected) => (
+      <Icon
+        name={PRODUCT_ICON_NAME.expense_management}
+        size={20}
+        color={selected ? SELECTED_ICON_COLOR : DEFAULT_ICON_COLOR}
+        aria-hidden
+      />
+    ),
   },
   {
     value: 'suppliers',
     label: 'Fornecedores',
-    icon: (selected) => <ProductIcon type="suppliers" size={20} selected={selected} />,
+    icon: (selected) => (
+      <Icon
+        name={PRODUCT_ICON_NAME.suppliers}
+        size={20}
+        color={selected ? SELECTED_ICON_COLOR : DEFAULT_ICON_COLOR}
+        aria-hidden
+      />
+    ),
   },
 ];
 
