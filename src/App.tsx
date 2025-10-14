@@ -1,9 +1,7 @@
+import { StatementPage } from './pages/StatementPage';
+
 export function App() {
-  return (
-    <main>
-      <h1>Espresso Statement</h1>
-    </main>
-  );
+  return <StatementPage />;
 }
 
 export default App;
