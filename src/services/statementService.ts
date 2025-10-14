@@ -7,9 +7,8 @@ import type {
   Transaction,
   TransactionDirection,
 } from '../types/statement';
+import { DEFAULT_API_BASE_URL } from '../constants/environment';
 
-const DEFAULT_API_BASE_URL =
-  'https://espresso-banking-api-q3-2025-bb3079ecefeb.herokuapp.com';
 const apiBaseFromEnv =
   (import.meta.env.VITE_API_BASE_URL as string | undefined) ?? DEFAULT_API_BASE_URL;
 const API_BASE_URL = apiBaseFromEnv.replace(/\/$/, '');
