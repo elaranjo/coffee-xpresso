@@ -103,12 +103,13 @@ const PRODUCT_FILTER_OPTIONS: Array<{ value: ProductView; label: string; icon: (
 ];
 
 export function StatementPage() {
+  const initialMonth = useMemo(() => INITIAL_MONTH_FILTER, []);
   const [productView, setProductView] = useState<ProductView>('all');
-  const [selectedMonthKey, setSelectedMonthKey] = useState<string>(INITIAL_MONTH_FILTER.key);
+  const [selectedMonthKey, setSelectedMonthKey] = useState<string>(initialMonth.key);
   const [queryFilters, setQueryFilters] = useState(() => ({
     ...DEFAULT_STATEMENT_FILTERS,
-    startDate: INITIAL_MONTH_FILTER.startDate,
-    endDate: INITIAL_MONTH_FILTER.endDate,
+    startDate: initialMonth.startDate,
+    endDate: initialMonth.endDate,
   }));
 
   const tableQuery = useStatement(queryFilters);
@@ -178,7 +179,7 @@ export function StatementPage() {
 
   const handleMonthChange = (monthKey: string) => {
     setSelectedMonthKey(monthKey);
-    const option = MONTH_FILTERS.find((item) => item.key === monthKey) ?? MONTH_FILTERS[0];
+    const option = MONTH_FILTERS.find((item) => item.key === monthKey) ?? initialMonth;
     setQueryFilters((previous) => ({
       ...previous,
       startDate: option.startDate,
