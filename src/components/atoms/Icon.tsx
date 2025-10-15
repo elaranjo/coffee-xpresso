@@ -36,7 +36,7 @@ export const Icon = forwardRef<HTMLSpanElement, IconProps>(function Icon(
   const svgMarkup = ICONS[name];
 
   if (!svgMarkup) {
-    if (process.env.NODE_ENV !== 'production') {
+    if (import.meta.env.DEV) {
       console.warn(`[Icon] Unknown icon "${name}".`);
     }
     return null;
