@@ -6,6 +6,7 @@ import { DEFAULT_API_BASE_URL } from './src/constants/environment';
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: '/coffee-xpresso/',
   server: {
     proxy: {
       '/api': {
