@@ -2,6 +2,8 @@
 
 Interface de extrato da conta digital do Espresso desenvolvida em React + TypeScript.
 
+🔗 **[Acessar aplicação](https://elaranjo.github.io/coffee-xpresso/)**
+
 ## Requisitos
 
 - Node.js v20.19.2
